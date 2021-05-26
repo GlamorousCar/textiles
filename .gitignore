@@ -1,0 +1,6 @@
+/venv/
+/venva/
+/db.sqlite3
+*.pyc
+__pycache__
+/shopProject/local.py

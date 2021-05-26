@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>textiles</title>
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cormorant+Unicase:400,500,600,700&amp;subset=cyrillic">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poiret+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tinos">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Vollkorn&amp;subset=cyrillic">
+    <link rel="stylesheet" href="/static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/fonts/ionicons.min.css">
+    <link rel="stylesheet" href="/static/fonts/line-awesome.min.css">
+    <link rel="stylesheet" href="/static/fonts/material-icons.min.css">
+    <link rel="stylesheet" href="/static/css/dh-navbar-centered-brand.css">
+    <link rel="stylesheet" href="/static/css/dh-navbar-inverse.css">
+    <link rel="stylesheet" href="/static/css/slick-theme.css">
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+    <link rel="stylesheet" href="/static/css/offcanv.css">
+</head>
+
+
+
+
+<body class="d-flex flex-column" style="background-image: url('/static/img/background23.png');font-family: Tinos, serif;">
+    <nav class="navbar navbar-light navbar-expand-md text-center d-sm-flex" style="margin-bottom: 0px;height: 161px;background-color: #FFFFFD;">
+        <div class="container-fluid" >
+            <div class="text-center" id="brand" style="width: 83%;height: 84px;"><img class="d-sm-flex align-items-sm-center" src="/static/img/Безымянный-1.svg" style="width: 100%;height: 100%;"></div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav text-center">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="font-family: 'Cormorant Unicase', serif;color: #000000;">Контакты</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" style="font-family: 'Cormorant Unicase', serif;color: #000000;">Отзывы</a></li>
+                </ul><img class="d-sm-flex justify-content-sm-center align-items-sm-center" src="/static/img/Безымянный-1.svg" style="width: 33%;max-width: auto;max-height: 102px;color: rgb(255,255,255);">
+                <ul class="nav navbar-nav ml-auto">
+                    <div class="bs-offset-main bs-canvas-anim">
+                        <li class="nav-item" role="presentation"><button class="btn btn-primary" type="submit" data-toggle="canvas" data-target="#bs-canvas-right" aria-expanded="false" aria-controls="bs-canvas-right" style="background-color: rgb(255,255,255);padding: 0px;border: none;outline: none"><i class="la la-shopping-cart" style="font-size: 30px;margin-right: 10px;color: #7BA7AB;filter: brightness(55%);width: 100%;height: 100%;"></i></button></li>
+                    </div>
+                    <li class="nav-item" role="presentation"><i class="la la-search" style="font-size: 30px;margin-right: 10px;color: #7BA7AB;filter: brightness(55%);width: 100%;height: 100%;"></i></li>
+                    <li class="nav-item" role="presentation"><i class="la la-star-o" style="font-size: 30px;color: #7BA7AB;filter: brightness(55%);width: 100%;height: 100%;"></i></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light navbar-expand-md text-center" style="padding-right: 0px;padding-left: 0px;width: 100%;padding-top: 8px;background-color: #7BA7AB;">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2" style="margin-left: 15px;padding-top: 4px;padding-right: 12px;"><span class="navbar-toggler-icon"></span></button>
+            <div class="row text-right" id="icons" style="margin-right: 5px;">
+                <div class="col-4"><button class="btn btn-primary text-center" type="submit" data-toggle="canvas" data-target="#bs-canvas-right" aria-expanded="false" aria-controls="bs-canvas-right" style="padding: 0px;background-color: rgba(255,255,255,0); border: none;outline: none"><i class="la la-shopping-cart" id="icon" style="color: rgb(33,37,41);margin-right: auto;margin-left: auto;"></i></button></div>
+                <div class="col-4"><i class="la la-search" id="icon"></i></div>
+                <div class="col-4"><i class="la la-star-o" id="icon" style="filter: blur(0px) contrast(200%) saturate(200%);"></i></div>
+            </div>
+            <div class="collapse navbar-collapse justify-content-center justify-content-xl-center" id="navcol-2" style="width: 100%;">
+                <ul class="nav navbar-nav text-center d-md-flex d-lg-flex justify-content-md-center justify-content-lg-center" style="width: 100%;margin-right: auto;margin-left: auto;font-family: Coustard, serif;">
+                    <li class="nav-item text-center" role="presentation" id="qw-er"><a class="nav-link active text-center font-weight-bold" id="navcol-1" style="font-family: 'Cormorant Unicase', serif;">SALE</a></li>
+                    {% for category in categories %}
+                        <li class="nav-item" role="presentation" id="qw"><a class="nav-link active text-center" href="/category/{{ category.slug }}" style="margin-right: 0px;padding: 8px 0px;font-family: 'Cormorant Unicase', serif;">{{ category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="bs-canvas-right" class="bs-canvas bs-canvas-anim bs-canvas-right position-fixed bg-light h-100" style="background-color: #6610f2">
+        <header class="bs-canvas-header p-3 bg-primary overflow-auto" style="background-color: #7BA7AB!important">
+            <button type="button" class="bs-canvas-close float-left close" aria-label="Close"><span aria-hidden="true" class="text-light">&times;</span></button>
+            {% if cart.qty == 1 %}
+            <h4 class="d-inline-block text-light mb-0 float-right " id="catname" style="font-size: 20px;margin-top: 14px;font-family: 'Cormorant Unicase', serif;opacity: 0.71;">{{ cart.qty }}  товар</h4>
+            {% elif cart.qty > 1 and cart.qty <= 4  %}
+            <h4 class="d-inline-block text-light mb-0 float-right " id="catname" style="font-size: 20px;margin-top: 14px;font-family: 'Cormorant Unicase', serif;opacity: 0.71;">{{ cart.qty }}  товара</h4>
+            {% elif cart.gty == 0 %}
+                <h4 class="d-inline-block text-light mb-0 float-right " id="catname" style="font-size: 20px;margin-top: 14px;font-family: 'Cormorant Unicase', serif;opacity: 0.71;"> Нет товаров</h4>
+            {% else %}
+            <h4 class="d-inline-block text-light mb-0 float-right " id="catname" style="font-size: 20px;margin-top: 14px;font-family: 'Cormorant Unicase', serif;opacity: 0.71;">{{ cart.qty }}  товаров</h4>
+            {% endif %}
+            <h4 class="d-inline-block text-light mb-0 float-left" id="catname" style="font-family: 'Cormorant Unicase', serif;"> Корзина</h4>
+        </header>
+        <div class="bs-canvas-content px-3 py-5">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr></tr>
+                    </thead>
+                    <tbody>
+                    {% for item in cart %}
+                        {% with product=item.product %}
+                            <tr style="padding-top: 0px;">
+
+                            <td style="width: 144px;padding: 0px;"><img class="img-fluid" src="/media/{{ product.image }}" style="width: 120px;margin-bottom: 15px;"></td>
+                            <td>
+                                <h5 class="text-left d-block" style="margin: 0px;margin-bottom: 0px;">{{ product.title }}</h5>
+                            </td>
+                            <td class="text-right"><a href="{% url "cart:cart_remove" product.id%}"><i class="material-icons float-right" style="font-size: 20px;">delete</i></a>
+                                <h6 class="text-right" style="margin: 0px;margin-bottom: 0px;font-size: 11px;padding-top: 157%;">{{ item.quantity }} x {{ item.price }}</h6>
+                            </td>
+                            </tr>
+                        {% endwith %}
+                    {% endfor %}
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td class="text-left"><strong>Итого</strong><br></td>
+                            <td><br></td>
+                            <td class="text-right">{{ cart.get_total_price }}</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="d-none">
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div><a href="{% url "orders:order_create" %}" class="btn btn-dark text-center align-items-md-end justify-content-xl-center align-items-xl-center" type="submit" style="margin: 0px;margin-right: auto;margin-left: auto;width: 100%;">Оформить Заказ</a></div>
+        </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+
+<hr style="height: 0px;margin-top: 30px;width: 100%;margin-bottom: 30px;">
+    <footer class="bottom" style="background-color: #f9fcfc;">
+        <h3 class="text-center" id="te" style="color: rgb(0,0,0);font-family: 'Cormorant Unicase', serif;">Подпишитесь на нашу рассылку</h3>
+        <h5 class="text-center" style="color: rgb(0,0,0);font-family: 'Cormorant Unicase', serif;">и получайте ...</h5>
+        <div class="row" id="rtyr">
+
+
+        </div>
+        <form  method="POST" id="form" >
+         {% csrf_token %}
+        <div class="row" id="rtyr" style="width: 100%">
+            <div class="col-12 col-sm-12 col-md-8 col-lg-8 col-xl-8" id="email" style="height: 46.6px;max-width: auto;width: 100%;margin-left: 0px;padding-top: -11px;">{{ form.email}}</div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3"
+                id="subscribe"><button class="btn text-center d-xl-flex justify-content-xl-center align-items-xl-center rounded-0" type="submit" style="width: 100%;color: rgb(255,255,255);background-color: #7BA7AB;font-family: Lora, serif;">Подписаться</button></div>
+        </div>
+    </form>
+        <hr style="height: 0px;margin-top: 33px;width: 100%;margin-bottom: 30px;">
+    </footer>
+    <footer class="text-center footer" style="background-color: #F9FCFC;">
+        <div class="row">
+            <div class="col-md-4 text-center">
+                <h3 style="margin-bottom: 15px;font-family: 'Cormorant Unicase', serif;">Магазин</h3>
+                <ul class="list-unstyled" style="font-family: Lora, serif;">
+                    {% for category in categories %}
+                    <li style="font-family: Vollkorn, serif;">{{ category.name}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3 style="margin-bottom: 15px;font-family: 'Cormorant Unicase', serif;">О нас</h3>
+                <ul class="list-unstyled" style="font-family: Lora, serif;">
+                    <li>О нас<br></li>
+                    <li>Рекомендации по эксплуатации<br></li>
+                    <li>Отзывы<br></li>
+                    <li>Блог<br></li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3 style="margin-bottom: 15px;font-family: 'Cormorant Unicase', serif;">Помощь</h3>
+                <ul class="list-unstyled" style="font-family: Lora, serif;">
+                    <li>Связаться с нами</li>
+                    <li>Политика конфиденциальности</li>
+                    <li>Доставка и возврат</li>
+                </ul>
+                <p style="font-family: Vollkorn, serif;font-size: 22px;">Мы принимаем</p><i class="icon ion-social-instagram-outline" style="height: 51px;width: 60px;font-size: 56px;"></i><i class="la la-facebook" style="height: 51px;width: 60px;font-size: 56px;"></i></div>
+        </div>
+    </footer>
+    <hr style="height: 0px;margin-top: 10px;width: 100%;margin-bottom: 10px;">
+    <h6 class="text-monospace text-center" style="margin: 0px;opacity: 1;color: #d5d4e6;"><i class="fa fa-copyright"></i>Company-name</h6>
+    <script>
+    const form = document.getElementById('form');
+    form.addEventListener("submit", submitHandler);
+
+    function submitHandler(e) {
+        e.preventDefault();
+        $.ajax({
+            type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
+            url         : '{% url 'contact' %}', // the url where we want to POST
+            data        : $('#form').serialize(), // our form data
+            dataType    : 'json', // what type of data do we expect back from the server
+            success     : successFunction
+        });
+    }
+
+    function successFunction(msg) {
+        if (msg.message === 'success') {
+            document.getElementsByName('email')[0].placeholder='Вы успешно подписались на рассылку';
+            form.reset()
+            console.log('Every body dance')
+        }
+    }
+</script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/bootstrap-input-spinner.js"></script>
+    <script>
+        $("input[type='number']").inputSpinner();
+    </script>
+    <script src="/static/js/slick.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script>$(document).ready(function(){
+  $('.slider').slick();
+});</script>
+    <script src="/static/js/slider.js"></script>
+    <script src="/static/js/offcanv.js"></script>
+    <script src="/static/js/cart.js"
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if products|length > 0 %}
+    <h1 class="text-center" id="catname" style="margin-top: 30px;margin-bottom: 0px;font-family: 'Cormorant Unicase', serif;">{{ products.0.category.name }}</h1>
+    <h1 class="text-center" id="catname2" style="margin-bottom: 30px;font-family: 'Cormorant Unicase', serif;opacity: 0.60;">Heading</h1>
+    {% endif %}
+    <div class="row" id="wer">
+    {% if products|length > 0 %}
+        {% for product in products %}
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><a href="{{ product.get_absolute_url }}"><img class="img-fluid" src="/media/{{ product.image }}" style="margin-right: auto;margin-left: auto;"></a>
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;font-family: Vollkorn, serif;">{{ product.title }}</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;font-family: Vollkorn, serif;">{{product.price}} руб.</h6>
+        </div>
+        {% endfor %}
+    {% else %}
+        <div class="col">
+            <h1 class="text-center" id="catname" style="margin-top: 30px;margin-bottom: 0px;font-family: 'Cormorant Unicase', serif;">Товаров нет. но мы постоянно пополянем ассортимент</h1>
+        </div>
+    {% endif %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;font-family: Vollkorn, serif;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;font-family: Vollkorn, serif;">4.000 руб</h6>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;font-family: Vollkorn, serif;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;font-family: Vollkorn, serif;">4.000 руб</h6>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;font-family: Vollkorn, serif;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;font-family: Vollkorn, serif;">4.000 руб</h6>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;font-family: Vollkorn, serif;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;font-family: Vollkorn, serif;">4.000 руб</h6>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;">4.000 руб</h6>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;">4.000 руб</h6>
+        </div>
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3" id="cola" style="margin-bottom: 50px;"><img class="img-fluid" src="/static/img/NE4A4179_c7c93c8c-36e4-4dfb-b249-21eafe9a756a_720x.jpg" style="margin-right: auto;margin-left: auto;">
+            <h2 class="text-center" style="font-size: 125%;margin-bottom: 2px;margin-top: 10px;">Комплект</h2>
+            <h6 class="text-center" style="font-size: 90%;margin-bottom: 4px;">4.000 руб</h6>
+        </div>
+    </div>
+{% endblock %}

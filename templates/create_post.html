@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Renaissance.vntg</title>
+    <meta name="description" content="Магазин витажной одежды">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="/static/img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/static/img/android-chrome-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="/static/img/android-chrome-512x512.png">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alegreya+SC">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono">
+    <link rel="stylesheet" href="/static/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/slick-theme.css">
+    <link rel="stylesheet" href="/static/css/slick.css">
+    <link rel="stylesheet" href="/static/css/styles.css">
+
+</head>
+
+<body style="background-color: #ffffff;">
+    <nav class="navbar navbar-light navbar-expand-md text-center" style="padding: 8px 8 px;background-color: #ffffff;height: 170px;">
+        <div class="container-fluid">
+            <div class="row" id="wer" style="max-height: 165px;height: 128px;">
+                <div class="col-xl-9 d-xl-flex justify-content-xl-center" style="max-height: 100%;height: 100%;"><a class="navbar-brand text-left d-flex d-xl-flex justify-content-start align-items-center align-content-end justify-content-xl-start align-items-xl-center" href="/" style="margin-right: 8px;color: rgb(0,0,0);width: 235px;max-height: 100%;height: 100%;padding-bottom: 0px;padding-top: 0px;font-size: 32px;"><br>RENAISSANCE.VNTG<br><br></a></div>
+                <div
+                    class="col-xl-3">
+                    <div class="row justify-content-between ml-auto" id="qaz" style="max-height: 100%;min-height: 100%;height: 25px;">
+                        <div class="col-12 col-md-5 col-lg-6 col-xl-6 d-flex d-xl-flex justify-content-start align-self-center justify-content-sm-start justify-content-xl-center" style="max-height: 100%;min-height: 100%;height: 14px;color: rgb(255,255,255);"><a class="align-self-center nav-link-active" href="#" style="color: rgb(0,0,0);font-size: 20px;">О нас</a></div>
+                        <div class="col-12 col-md-5 col-lg-6 col-xl-6 d-flex d-xl-flex justify-content-start justify-content-xl-center"
+                            style="max-height: 100%;min-height: 100%;height: 27px;"><a class="align-self-center nav-link-active" href="/cart" style="color: rgb(0,0,0);font-size: 20px;">Корзина</a></div>
+                    </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <nav class="navbar navbar-light navbar-expand-md border rounded-0" style="margin-top: 25px;">
+        <div class="container-fluid"><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-2"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse justify-content-center justify-content-xl-center"
+                id="navcol-2">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/sale">SALE</a></li>
+                    {% for category in categories %}
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/category/{{ category.slug }}">{{ category.name }}</a></li>
+                    {% endfor %}
+
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/exclusive">Эксклюзив</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="/articles">О стиле</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+        <div class="row" id="trow">
+        {% for obj in products%}
+            <div class="col-6 col-sm-4 col-xl-4 d-inline-block block" style="padding: auto;">
+                <div class="block__inner"><a href="{{ obj.get_absolute_url }}"><img class="image" src="/media/{{ obj.image }}" style="padding: 3px;"></a></div>
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+    <footer class="rounded-0" style="margin-top: 17px;">
+        <nav class="text-center d-flex d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-center justify-content-sm-center justify-content-md-center justify-content-lg-center justify-content-xl-center">
+            <ul class="pagination">
+                {% if products.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page={{ products.previous_page_number }}" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+
+                {% endif %}
+                {% for page in products.paginator.page_range %}
+                <li class="page-item"><a class="page-link" href="?page={{page}}">{{ page }}</a></li>
+                {% endfor %}
+
+
+                {% if products.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ products.next_page_number }}" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+
+                {% endif %}
+            </ul>
+
+        </nav>
+    </footer>
+
+
+<hr style="height: 2px;">
+<footer id="iu" class="bottom" style="background-color: rgb(255,255,255);margin-top: 70px;margin-bottom: 50px;">
+    <h2 class="text-center" style="color: rgb(0,0,0);">Подпишитесь на нашу рассылку</h2>
+    <h5 class="text-center" style="color: rgb(0,0,0);margin:0px;margin-bottom: 25px;">и получайте ...</h5>
+
+    <form  method="POST" id="form" style="margin-left: auto;height: 35px;">
+         {% csrf_token %}
+        <div class="form-row" id = "rtyr" style="height: 100%;max-height: 100%;">
+            <div class="col-7 col-sm-8 col-md-8 col-lg-8 col-xl-8" style="max-width: auto;width: 100%;margin-left: 0px;padding-right: 15px;padding-left: 15px;height: 100%;min-height: 100%;">{{ form.email}}</div>
+            <div class="col-5 col-sm-4 col-md-4 col-lg-3 col-xl-3" style="padding-right: 15px;padding-left: 15px;height: 100%;"><button class="btn text-center d-inline-block d-md-flex justify-content-md-center align-items-md-center justify-content-xl-center align-items-xl-center rounded-0" type="submit" style="width: 100%;color: rgb(255,255,255);background-color: #595755;height: 100%;">Подписаться</button></div>
+        </div>
+    </form>
+
+</footer>
+
+
+
+        </div>
+    </footer>
+    <footer class="text-center bottom" style="background-color: rgb(89,87,85); margin-top: 50px">
+        <div class="row" style="margin-right: 20px;margin-left: 20px;">
+            <div class="col-md-4 text-center">
+                <h3 style="margin-bottom: 20px;margin-top: 20px;">Магазин</h3>
+                <ul class="list-unstyled">
+                    {% for category in categories %}
+
+                        <li><a href="/category/{{ category.slug }}" style="color: white">{{ category.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3 style="margin-bottom: 20px;margin-top: 20px;">О нас</h3>
+                <ul class="list-unstyled">
+                    <li>О магазине</li>
+                    <li>Контакты</li>
+                    <li>Политика конфиденциальности и оферта</li>
+                    <li>Отзывы</li>
+                    <li>Оплата и доставка</li>
+                </ul>
+            </div>
+            <div class="col-md-4 text-center">
+                <h3 style="margin-bottom: 20px;margin-top: 20px;">Услуги?</h3>
+                <ul class="list-unstyled">
+                    <li>Упаковка</li>
+                    <li>Ремонт</li>
+                    <li>Реставрация</li>
+                </ul>
+            </div>
+        </div>
+        <p class="text-center"><br>Renaissance.VNTG<br>Индивидуальный предприниматель&nbsp;<br>ОГРНИП ИНН&nbsp;<br><br></p>
+    <a href="https://wa.me/79267857387" style="color: rgb(255,255,255);"><i class="fa fa-whatsapp" style="font-size: 40px;margin-bottom: 0px;margin-right: 5px;"></i></a>
+    <a class="text-center" href="https://www.instagram.com/renaissance.vntg/" style="color: rgb(255,255,255);"><i class="fa fa-instagram" style="font-size: 40px;margin-left: 5px;"></i></a>
+    </footer>
+
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/static/js/slick.js"></script>
+    <script src="/static/js/slick.min.js"></script>
+    <script src="/static/js/slider.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% block content %}
+    <style>.form-group {
+  -ms-flex: 0 0 100%;
+flex: 0 0 100%;
+max-width: 100%;
+}
+</style>
+    <div style="margin-top:50px">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 asd">
+                    <form action="." method="post" >
+
+                    <div class="form-row">
+                        {{ formo|crispy }}
+
+                        <div class="col-12"><input type="submit" class="btn btn-dark text-center align-items-md-end justify-content-xl-center align-items-xl-center" style="margin: 0px;margin-right: auto;margin-left: auto;width: 100%;"value="Оформить заказ"></div>
+                    </div>
+                        {% csrf_token %}
+                    </form>
+                </div>
+                <div class="col-sm-6 text-center d-flex align-items-center">
+                    <h3 class="text-center align-self-start" style="margin-bottom: 240px;margin-left: 104px;">Ваш заказ</h3>
+                    <ol class="text-left align-self-start" style="margin-left: -215px;margin-top: 69px;">
+                    {% for item in cart %}
+                        <li>
+                            <!--{{ item.quantity }}--> {{ item.product.title }}
+                            <span>{{ item.total_price }}</span>
+                        <br></li>
+                    {% endfor %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
